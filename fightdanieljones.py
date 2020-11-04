@@ -14,13 +14,17 @@ from PIL import Image
 
 warnings.filterwarnings('ignore')
 
-st.sidebar.write('https://github.com/kanerhee')
+st.sidebar.write('https://github.com/kanerhee/fightdanieljones')
+st.sidebar.text("")
 st.sidebar.title('Shouts out to: ')
 st.sidebar.text('@SimonKurtisRhee')
-st.sidebar.text('@JordnCPierce_')
+st.sidebar.text('@jordancpierce')
 st.sidebar.text('@Tiefkowski')
-st.sidebar.text('@Ikewafeena')
-st.sidebar.text('@JoeyLieberman9')
+st.sidebar.text('@Ikewafina')
+st.sidebar.text('@michaelnemeh')
+st.sidebar.text('@_mitchmakes')
+st.sidebar.text('@sheabaaaaaybay')
+st.sidebar.text('@Joey_Lieberman24')
 st.sidebar.text('@EvanColesLewis')
 st.sidebar.text('@Hayashi69')
 
@@ -31,39 +35,54 @@ def app():
 
     st.subheader('Basic Info: ')
 
-    danieljonespoints = 6
+    danieljonespoints = 5.5
     totalpoints = 0
     # Slider For Age:
     yourage = st.slider('What is your age?',
         0, 100, (0)
     )
+
     if yourage < 40:
         if yourage > 18:
             totalpoints = totalpoints + 2
+    elif yourage < 50:
+        if yourage > 40:
+            totalpoints = totalpoints + 1
 
     # Slider for Weight:
     yourheight = st.slider('What is your height?',
         0.0, 8.0, (0.0)
     )
     if yourheight < 8.0:
-        if yourheight > 5.5:
+        if yourheight <  5.5:
+            totalpoints = totalpoints + 1
+        elif yourheight < 6.2:
             totalpoints = totalpoints + 2
+        else:
+            totalpoints = totalpoints + 3
 
     # Slider for Weight:
     yourweight = st.slider('What is your weight?',
         0.0, 300.0, (0.0)
     )
     if yourweight < 290:
-        if yourweight > 140:
+        if yourweight <= 140:
+            totalpoints = totalpoints + 1
+        elif yourweight <= 180:
             totalpoints = totalpoints + 2
+        elif yourweight > 180:
+            totalpoints = totalpoints + 3
 
     # Slider for 40 time:
     your40 = st.slider(
         'How fast can you run the 40 yard dash?',
         0.0, 10.0, (0.0)
     )
-    if your40 < 4.9:
-        totalpoints = totalpoints + 1
+    if your40 < 5.0:
+        if your40 <= 4.4:
+            totalpoints = totalpoints + 2
+        elif your40 <= 4.9:
+            totalpoints = totalpoints + 1
 
     if your40:
         haveyoufell = ['Yes', 'No']
@@ -99,16 +118,16 @@ def app():
                     if danieljonespoints >= totalpoints:
 
                         with col1:
-                            image = Image.open('/Users/kanerhee/Desktop/github/canyoubeatdanieljones/danhappy.png')
+                            image = Image.open('/home/ubuntu/fightdanieljones/danhappy.png')
                             st.image(image, use_column_width=True)
                         with col2:
                             st.subheader('No!')
-                            st.write('Run for your life. You never know where Daniel Jones is hiding.')
+                            st.write('Run for your life. And pray Daniel Jones stumbles.')
 
                     elif totalpoints > danieljonespoints:
 
                         with col1:
-                            image = Image.open('/Users/kanerhee/Desktop/github/canyoubeatdanieljones/dansad.png')
+                            image = Image.open('/home/ubuntu/fightdanieljones/dansad.png')
                             st.image(image, use_column_width=True)
                         with col2:
                             st.subheader('Yes!')
